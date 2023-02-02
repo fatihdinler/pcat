@@ -1,0 +1,27 @@
+{
+  "name": "pcat",
+  "version": "1.0.0",
+  "description": "photo sharing/posting app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fatihdinler/pcat.git"
+  },
+  "keywords": [
+    "photo",
+    "app",
+    "camera"
+  ],
+  "author": "Fatih Dinler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fatihdinler/pcat/issues"
+  },
+  "homepage": "https://github.com/fatihdinler/pcat#readme",
+  "devDependencies": {
+    "prettier": "2.8.3"
+  }
+}
