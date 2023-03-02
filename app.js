@@ -1,16 +1,14 @@
 const express = require('express')
+const path = require('path')
 
 const app = express()
 
+// Middleware...
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
-
-  const photo = {
-    id : 1,
-    name : 'Car photo',
-    description : 'This is an excelent car photo.'
-  }
-
-  res.send(photo)
+  let file = path.resolve(__dirname, 'temp/index.html')
+  res.sendFile(file)
 })
 
 const port = 3000
