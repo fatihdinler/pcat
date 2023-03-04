@@ -35,5 +35,5 @@ const Photo = mongoose.model('Photo', PhotoSchema)
 // Photo.findByIdAndUpdate(id, {title : 'Photo title 1 updated'}).then((data => console.log(data)))
 
 // delete a photo
-const id = '64037e6c3fb9e91c57dd5bcd'
-Photo.findByIdAndDelete(id).then(item => console.log(item))
+// const id = '64037e6c3fb9e91c57dd5bcd'
+// Photo.findByIdAndDelete(id).then(item => console.log(item))
