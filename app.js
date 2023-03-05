@@ -1,11 +1,19 @@
 const express = require('express')
-const path = require('path')
-const ejs = require('ejs')
+const mongoose = require('mongoose')
+const Photo = require('./models/Photo')
 
 const app = express()
 
 // Template Engine
 app.set('view engine', 'ejs')
+
+// connect DB
+const dbUrl = '127.0.0.1:27017'
+const dbName = 'pcat'
+mongoose.connect(`mongodb://${dbUrl}/${dbName}`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 
 // Middleware...
 app.use(express.static('public'))
@@ -13,8 +21,11 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 // Routing
-app.get('/', (req, res) => {
-  res.render('index')
+app.get('/', async(req, res) => {
+  const photos = await Photo.find()
+  res.render('index', {
+    photos
+  })
 })
 
 app.get('/about', (req, res) => {
@@ -25,7 +36,8 @@ app.get('/add', (req, res) => {
   res.render('add')
 })
 
-app.post('/photos', (req, res) => {
+app.post('/photos', async (req, res) => {
+  await Photo.create(req.body)
   console.log(req.body)
   res.redirect('/')
 })
