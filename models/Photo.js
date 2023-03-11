@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+// Schema
 const PhotoSchema = new Schema({
   title: String,
   message: String,
@@ -11,6 +12,7 @@ const PhotoSchema = new Schema({
   },
 })
 
+// Model
 const Photo = mongoose.model('Photo', PhotoSchema)
 
 // Exports Photo model
